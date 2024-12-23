@@ -5,10 +5,13 @@ terraform {
       version = "5.15.0"
     }
   }
+  backend "s3" {
+    bucket = "terraform-aks-bucket"
+    key    = "statefiles/terraform.tfstate"
+    region = "us-east-1" 
+  }
 }
-# provider "aws" {
-#   region     = "us-east-1"
-# }
+
 
 
 module "networking" {
